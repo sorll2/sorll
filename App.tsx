@@ -1,17 +1,17 @@
 
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Home } from './views/Home';
-import { MovieDetails } from './views/MovieDetails';
-import { Login } from './views/Login';
-import { Register } from './views/Register';
-import { Contact } from './views/Contact';
-import { Admin } from './views/Admin';
-import { News } from './views/News';
-import { Category } from './views/Category';
-import { User, Movie, Comment, NewsItem } from './types';
-import { MOCK_MOVIES, MOCK_COMMENTS, MOCK_USERS, MOCK_NEWS } from './constants';
+import { Navbar } from './components/Navbar.tsx';
+import { Home } from './views/Home.tsx';
+import { MovieDetails } from './views/MovieDetails.tsx';
+import { Login } from './views/Login.tsx';
+import { Register } from './views/Register.tsx';
+import { Contact } from './views/Contact.tsx';
+import { Admin } from './views/Admin.tsx';
+import { News } from './views/News.tsx';
+import { Category } from './views/Category.tsx';
+import { User, Movie, Comment, NewsItem } from './types.ts';
+import { MOCK_MOVIES, MOCK_COMMENTS, MOCK_USERS, MOCK_NEWS } from './constants.ts';
 
 /**
  * 全局状态上下文定义
