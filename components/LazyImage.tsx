@@ -74,13 +74,12 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     if (isVisible) {
       if (errorStage === 0) {
         setCurrentSrc(getOptimizedImageUrl(src, width, height));
-        // 为代理设置一个较短的超时时间，防止因 wsrv.nl 被墙导致长时间白屏
+        // 超时判定缩短至 1.5 秒，以适应国内网络环境
         timeoutRef.current = window.setTimeout(() => {
           if (!isLoaded) {
-            console.warn('Image proxy timeout, falling back to original source');
             handleError();
           }
-        }, 2500);
+        }, 1500);
       } else if (errorStage === 1) {
         setCurrentSrc(src);
       }
@@ -111,7 +110,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({
       {errorStage === 2 ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 z-0 p-4 text-center">
           <ImageOff size={32} className="text-gray-700 mb-3" />
-          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">图片加载失败</span>
+          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 text-wrap px-2">海报加载超时</span>
           {title && <p className="text-xs font-medium text-gray-400 line-clamp-2">{title}</p>}
           <button 
             onClick={() => { setErrorStage(0); setIsLoaded(false); }}

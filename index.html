@@ -7,7 +7,7 @@
     <title>CinemaScope - 发现好电影</title>
     <!-- 预连接优化 -->
     <link rel="preconnect" href="https://wsrv.nl" />
-    <!-- 引入 Tailwind CSS CDN（保留，用于样式实时渲染，其 CDN 在国内通常可用） -->
+    <!-- Tailwind CSS 运行时配置 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -34,6 +34,7 @@
       ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
       body { background-color: #141414; color: white; margin: 0; }
+      #root { min-height: 100vh; }
     </style>
   <script type="importmap">
 {
@@ -52,7 +53,7 @@
 </head>
   <body>
     <div id="root"></div>
-    <!-- Vite 编译入口：依靠 Vite 自动处理 node_modules 中的 React -->
+    <!-- 所有的依赖（React, Router 等）都将通过此入口被 Vite 打包，不再依赖外部 URL -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>
